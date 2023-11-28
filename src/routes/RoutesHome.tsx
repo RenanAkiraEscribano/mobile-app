@@ -9,7 +9,8 @@ import Login from '../pags/Login';
 const App = createNativeStackNavigator();
 
 type RoutesHomeNavigation = {
-    Home: undefined;
+    Login: undefined;
+    Principal: undefined;
     Cadastro: undefined;
     Relatorio: undefined;
 }
@@ -19,17 +20,21 @@ export type RoutesHomeTypes = NativeStackNavigationProp<RoutesHomeNavigation>;
 export default function RoutesHome() {
     return (
         <NavigationContainer>
-            <App.Navigator initialRouteName='Login' screenOptions={{ headerShown: false}}>
-            <App.Screen 
-                    name='Home' 
+            <App.Navigator screenOptions={{ headerShown: false }}>
+                <App.Screen
+                    name='Login'
+                    component={Login}
+                />
+                <App.Screen
+                    name='Principal'
                     component={Principal}
                 />
-                <App.Screen 
-                    name='Cadastro' 
+                <App.Screen
+                    name='Cadastro'
                     component={CadastroMetodologia}
                 />
-                <App.Screen 
-                    name='Relatorio' 
+                <App.Screen
+                    name='Relatorio'
                     component={RelatorioMetodologias}
                 />
             </App.Navigator>

@@ -17,9 +17,6 @@ export default function RoutesTab() {
                     tabBarIcon: ({ color, size }) => <Feather name='home' color={color} size={size} />,
                     tabBarLabel: 'Início'
                 }} />
-            {/*<App.Screen name='Metodologias' component={} />
-                <App.Screen name='Usuario' component={} />*/}
-
         </App.Navigator>
     )
 }

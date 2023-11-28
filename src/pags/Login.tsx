@@ -6,6 +6,11 @@ import { Titulo } from '../components/Titulo';
 import { EntradaTexto } from '../components/EntradaTexto';
 import React from 'react';
 import * as AuthSession from 'expo-auth-session';
+import { useNavigation } from '@react-navigation/native';
+import { RoutesHomeTypes } from "../routes/RoutesHome";
+import Principal from './Principal';
+
+//const navigation = useNavigation<RoutesHomeTypes>();
 
 type authResponse = {
     params: {
@@ -14,8 +19,8 @@ type authResponse = {
     type: string;
 }
 
-export default function Login() {
-
+export default function Login( {navigation} ) {
+    /*
     async function handleGoogleSignIn() {
         try {
             const CLIENT_ID = '394565053643-562t24itqdsef7kjmgqq9up87spm8ful.apps.googleusercontent.com';
@@ -42,7 +47,7 @@ export default function Login() {
             console.log(error);
         }
     }
-
+*/
     return (
         <VStack flex={1} alignItems="center" p={5} justifyContent='center'>
             <Image source={Logo} alt='Logo do app' size='2xl' />
@@ -53,7 +58,7 @@ export default function Login() {
                 <EntradaTexto label='Email' placeholder='Insira aqui seu email' />
                 <EntradaTexto label='Senha' placeholder='Insira aqui sua senha' />
             </Box>
-            <Button w='100%' bg={TEMAS.colors.blue[800]} mt={10} borderRadius='lg'>Entrar</Button>
+            <Button onPress={() => navigation.navigate('Principal')} w='100%' bg={TEMAS.colors.blue[800]} mt={10} borderRadius='lg'>Entrar</Button>
             <Link href='http://www.google.com.br' mt={5}>
                 Esqueceu sua senha?
             </Link>
