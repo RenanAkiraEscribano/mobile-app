@@ -1,13 +1,12 @@
-import Principal from './src/pags/Principal';
-import { NativeBaseProvider, StatusBar } from 'native-base'
+import { NativeBaseProvider } from 'native-base'
 import { TEMAS } from './src/estilos/temas';
-import RoutesTab from './src/routes/RoutesTab';
-import RoutesHome from './src/routes/RoutesHome';
+import RoutesHome from './src/routes/Routes';
+import { StatusBar } from 'expo-status-bar'
 
 export default function App() {
   return (
     <NativeBaseProvider theme={TEMAS}>
-      <StatusBar backgroundColor={TEMAS.colors.blue[800]}/>
+      <StatusBar/>
       <RoutesHome/>
     </NativeBaseProvider>
   );

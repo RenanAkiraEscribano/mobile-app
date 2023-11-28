@@ -12,7 +12,6 @@ export function Titulo({ children, ...rest}: TituloProps ){
             fontWeight="bold" 
             color="gray.500" 
             textAlign="center" 
-            mt={5}
             {...rest}>
             {children}
         </Text>

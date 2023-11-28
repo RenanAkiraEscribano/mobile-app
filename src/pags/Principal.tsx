@@ -1,18 +1,21 @@
 import { Box } from "native-base";
 import { Botao } from "../components/Botao";
-import { useNavigation } from '@react-navigation/native';
-import { RoutesHomeTypes } from "../routes/RoutesHome";
+import Cabecalho from "../components/Cabecalho";
+import styles from "./styles";
+import { SafeAreaView } from 'react-native'
+import { geraPDF } from "../utils/geraPDF";
 
-export default function Principal() {
+export default function Principal({ navigation, route }) {
 
-  const navigation = useNavigation<RoutesHomeTypes>();
-
+  console.log(route.params)
   return (
-    <Box w='100%' flex={1} alignItems="center" justifyContent='center'>
-      <Botao onPress={() => navigation.navigate('Cadastro')} w='60%'>Cadastro Metodologia</Botao>
-      <Botao w='60%'>Editar Metodologia</Botao>
-      <Botao w='60%'>Relatório de Metodologias</Botao>
-    </Box>
+    <SafeAreaView style={{...styles.body}}>
+      <Cabecalho style={styles.Cabecalho} styleText={styles.CabecalhoText} title={'Method Control'} subtitle={route.params.result.nome} />
+      <Box w='100%' flex={1} alignItems="center" mt={100}>
+        <Botao onPress={() => navigation.navigate('Metodologia', route.params)} w='60%'>Metodologias</Botao>
+        <Botao onPress={() => geraPDF(route.params.result)} w='60%' mt={10}>Relatório de Metodologias</Botao>
+      </Box>
+    </SafeAreaView>
   );
 }
 
